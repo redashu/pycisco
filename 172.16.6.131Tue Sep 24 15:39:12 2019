@@ -1,0 +1,153 @@
+
+csr1000v_1#term len 0
+csr1000v_1#sh run 
+Building configuration...
+
+Current configuration : 1350 bytes
+!
+! Last configuration change at 05:08:35 UTC Tue Sep 24 2019
+!
+version 15.5
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no platform punt-keepalive disable-kernel-core
+platform console auto
+!
+hostname csr1000v_1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging buffered 20000
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+no ip domain lookup
+ip domain name cisco.com
+
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 90JM36K5UKR
+file prompt quiet
+spanning-tree extend system-id
+!
+username root privilege 15 password 0 cisco
+username me password 0 you
+!
+redundancy
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+ip scp server enable
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback1
+ ip address 1.2.3.3 255.0.0.0
+!
+interface Loopback2
+ no ip address
+!
+interface Loopback4
+ no ip address
+!
+interface GigabitEthernet1
+ description outside
+ ip address dhcp
+ negotiation auto
+!
+!
+virtual-service csr_mgmt
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+control-plane
+!
+ !
+ !
+ !
+ !
+!
+!
+!
+!
+!
+line con 0
+ logging synchronous
+line vty 0
+ login local
+ transport input ssh
+line vty 1
+ login local
+ length 0
+ transport input ssh
+line vty 2 4
+ login local
+ transport input ssh
+line vty 5 11
+ login local
+ transport input ssh
+!
+!
+end
+
+csr1000v_1#
