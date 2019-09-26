@@ -1,0 +1,27 @@
+---
+ - hosts: all
+   gather_facts: no
+   tasks:
+    - name: i want to run command 
+      ios_command:
+       commands: 
+        - show ip int br
+        - show vers
+        - show run
+        - show clock
+     
+    - name: ping to google dns
+      ios_command:
+       commands: 
+        - show ip int br 
+      register:  output
+
+    - name: showing  normal output 
+      debug:
+       msg: "hey my output of above command is  {{ output }}"
+     
+    - name:  execute me plz
+      debug:
+       msg: "hello world this is me only plz run me"
+      tags:
+       - anything
