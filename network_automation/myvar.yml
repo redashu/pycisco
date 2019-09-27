@@ -1,0 +1,15 @@
+cmd:
+ - show run
+ - show arp
+ - show ip int br
+ - show clock
+
+
+users:
+ - {name: demo1,password: cisco1}
+ - {name: demo2,password: cisco2}
+ - {name: demo3,password: cisco3}
+users1:
+ - {x: demo1,y: cisco1}
+ - {x: demo2,y: cisco2}
+ - {x: demo3,y: cisco3}

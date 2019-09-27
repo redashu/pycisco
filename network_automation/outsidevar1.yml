@@ -1,0 +1,4 @@
+x: show clock
+y: show run
+ip: 8.8.8.8
+z: show arp 

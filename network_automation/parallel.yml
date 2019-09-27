@@ -1,0 +1,10 @@
+---
+ - hosts: all
+   gather_facts: no
+   serial: 2
+   tasks:
+    - name: just message
+      debug: msg="hello cisco"
+
+    - name: just okey
+      debug: msg="Network automation"

@@ -1,0 +1,17 @@
+---
+ - hosts: 172.16.6.131
+   tasks:
+    - name: i want to run command 
+      ios_facts:
+       gather_subset: all
+      register: x
+
+    - name: using 
+      debug: var=x.ansible_facts.ansible_net_interfaces
+
+    - name: kk
+      debug: msg="{{ ansible_net_interfaces.GigabitEthernet1.ipv4[0].address  }}"
+    - name: kk11
+      debug: msg="{{ item }}"
+      with_items:
+       - "{{ x.ansible_facts.ansible_net_interfaces.values()  }}"

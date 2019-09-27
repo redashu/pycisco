@@ -1,0 +1,15 @@
+---
+ - hosts: all    #  this target  section 
+   gather_facts: no
+   vars:    #  this is variable section 
+    cmd:
+     - show run
+     - show clo
+     - show ip int br
+     - show arp 
+   tasks:              #  task section 
+    - name: running  command 
+      ios_command:
+       commands: "{{ item }}"
+      loop:         #  this is for loop in programing 
+       - "{{ cmd }}"

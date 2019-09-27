@@ -1,0 +1,21 @@
+---
+ - hosts: csr
+   gather_facts: no
+   vars:
+    ip: 8.8.8.8
+    c: show run
+   tasks:
+    - name: just message
+      ios_command:
+       commands: "{{ c }}"
+
+    - name: hello 
+      ios_ping:
+       dest: "{{ ip }}"
+
+    - name: using "{{ ip }}"
+      ios_command:
+       commands: ping  "{{ ip }}"
+
+    - name: dns
+      debug: msg="Our DNS  server ip is  {{ ip }}"

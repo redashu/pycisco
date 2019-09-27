@@ -1,0 +1,7 @@
+---
+ - hosts: all
+   roles:
+    - static_inter
+    - static_route
+    - dynamic_route
+    - acl_route

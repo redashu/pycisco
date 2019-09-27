@@ -1,0 +1,16 @@
+---
+# vars file for static_route
+x: show run
+y: show clo
+z: 8.8.8.8
+a: show ip int br
+users:
+ - {name: demo1 , password: cisco1}
+ - {name: demo2 , password: cisco1}
+ - {name: demo3 , password: cisco1}
+
+
+static:
+ - {ip: 192.168.1.0 , netmask: 255.255.255.0, gw: 192.168.1.1 }
+ - {ip: 192.168.1.0 , netmask: 255.255.255.0, gw: 192.168.1.1 }
+ - {ip: 192.168.1.0 , netmask: 255.255.255.0, gw: 192.168.1.1 }

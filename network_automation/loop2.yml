@@ -1,0 +1,19 @@
+---
+ - hosts: all    #  this target  section 
+   vars_files:    #  this is variable section 
+    - myvar.yml
+   tasks:              #  task section 
+    - name: running  command 
+      ios_command:
+       commands: "{{ item }}"
+      loop:         #  this is for loop in programing 
+       - "{{ cmd }}"
+
+    - name: creating users with password 
+      ios_user:
+       name: "{{ item.name }}"
+       privilege: 15
+       state: present
+       configured_password: "{{ item.password }}"
+      with_items:
+       - "{{ users }}"

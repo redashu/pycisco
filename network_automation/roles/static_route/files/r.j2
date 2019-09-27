@@ -1,0 +1,11 @@
+hostname  "{{ x }}"
+{% for item in  users %}
+username  item.name  pri  15  password  item.password
+{% endfor %}
+
+
+{% for i in  static %}
+
+ip route i.ip  i.netmask i.gateway 
+
+{% ennfor %}

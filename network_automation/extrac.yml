@@ -1,0 +1,17 @@
+---
+ - hosts: 172.16.6.129
+   tasks:
+    - ios_command:
+       commands: show ip int br
+      register: output
+
+    - name: okk cool 
+      ios_command:
+       commands: show ip int br
+      register: output1
+
+    - debug: var=output
+
+    - name: using output data
+      debug: msg="{{ output.stdout_lines }}" 
+      

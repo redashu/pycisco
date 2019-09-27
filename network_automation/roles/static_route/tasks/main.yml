@@ -1,0 +1,6 @@
+---
+# tasks file for static_route
+ - name: using variables 
+   ios_command:
+    commands: "{{ x }}"
+
